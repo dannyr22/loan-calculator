@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Alert } from "react-native";
+import { View, Alert } from "react-native";
+import { styles } from "./HomeScreen.styles";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import LoanSlider from "../components/loan-slider/LoanSlider";
@@ -38,6 +39,7 @@ const HomeScreen = ({ onLayout }: { onLayout: () => void }) => {
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.card}>
           <LoanSlider
+            testID="amount-slider"
             label="I want to borrow"
             displayValue={formatCurrency(amount)}
             value={amount}
@@ -47,6 +49,7 @@ const HomeScreen = ({ onLayout }: { onLayout: () => void }) => {
             onValueChange={setAmount}
           />
           <LoanSlider
+            testID="term-slider"
             label="over"
             displayValue={formatTerm(term)}
             value={term}
@@ -66,21 +69,5 @@ const HomeScreen = ({ onLayout }: { onLayout: () => void }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  gradient: {
-    flex: 1,
-  },
-  safeArea: {
-    flex: 1,
-    justifyContent: "center",
-    gap: 16,
-  },
-  card: {
-    backgroundColor: "#ffffff",
-    marginHorizontal: 16,
-    borderRadius: 8,
-    overflow: "hidden",
-  },
-});
 
 export default HomeScreen;

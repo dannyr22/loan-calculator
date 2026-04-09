@@ -1,5 +1,6 @@
 import React from "react";
-import { TouchableOpacity, Text, StyleSheet } from "react-native";
+import { TouchableOpacity, Text } from "react-native";
+import { styles } from "./Button.styles";
 
 interface ButtonProps {
   label: string;
@@ -11,20 +12,5 @@ const Button = ({ label, onPress }: ButtonProps) => (
     <Text style={styles.label}>{label}</Text>
   </TouchableOpacity>
 );
-
-const styles = StyleSheet.create({
-  button: {
-    backgroundColor: "#f60367",
-    borderRadius: 8,
-    paddingVertical: 16,
-    alignItems: "center",
-    marginHorizontal: 16,
-  },
-  label: {
-    color: "#ffffff",
-    fontSize: 15,
-    fontFamily: "OpenSans_600SemiBold",
-  },
-});
 
 export default Button;

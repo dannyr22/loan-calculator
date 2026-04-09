@@ -1,5 +1,6 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text } from "react-native";
+import { styles } from "./Info.styles";
 import { formatCurrency } from "../../utils/calculations";
 
 interface InfoProps {
@@ -19,29 +20,5 @@ const Info = ({ interestRate, monthlyRepayment }: InfoProps) => (
     </View>
   </View>
 );
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    backgroundColor: "#f5f5f5",
-    paddingVertical: 16,
-    paddingHorizontal: 24,
-  },
-  column: {
-    flex: 1,
-    alignItems: "center",
-  },
-  value: {
-    fontSize: 35,
-    color: "#999999",
-    fontFamily: "OpenSans_300Light",
-  },
-  label: {
-    fontSize: 11,
-    color: "#000000",
-    marginTop: 4,
-    fontFamily: "OpenSans_400Regular",
-  },
-});
 
 export default Info;

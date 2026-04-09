@@ -1,8 +1,10 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text } from "react-native";
+import { styles } from "./LoanSlider.styles";
 import RNSlider from "@react-native-community/slider";
 
 interface LoanSliderProps {
+  testID?: string;
   label: string;
   displayValue: string;
   value: number;
@@ -13,6 +15,7 @@ interface LoanSliderProps {
 }
 
 const LoanSlider = ({
+  testID,
   label,
   displayValue,
   value,
@@ -27,6 +30,7 @@ const LoanSlider = ({
       <Text style={styles.value}>{displayValue}</Text>
     </View>
     <RNSlider
+      testID={testID}
       style={styles.slider}
       value={value}
       minimumValue={minimumValue}
@@ -40,30 +44,5 @@ const LoanSlider = ({
   </View>
 );
 
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 24,
-    paddingVertical: 12,
-  },
-  row: {
-    flexDirection: "row",
-    alignItems: "baseline",
-    gap: 8,
-  },
-  label: {
-    fontSize: 15,
-    color: "#000000",
-    fontFamily: "OpenSans_400Regular",
-  },
-  value: {
-    fontSize: 25,
-    color: "#999999",
-    fontFamily: "OpenSans_300Light",
-  },
-  slider: {
-    width: "100%",
-    height: 40,
-  },
-});
 
 export default LoanSlider;
