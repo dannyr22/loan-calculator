@@ -1,10 +1,11 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react-native";
 import LoanSlider from "./LoanSlider";
+import { strings } from "../../strings";
 
 const defaultProps = {
   testID: "test-slider",
-  label: "I want to borrow",
+  label: strings.homeScreen.amountLabel,
   displayValue: "£7,500.00",
   value: 7500,
   minimumValue: 1000,
@@ -16,7 +17,7 @@ const defaultProps = {
 describe("LoanSlider", () => {
   it("renders the label and value", () => {
     const { getByText } = render(<LoanSlider {...defaultProps} />);
-    expect(getByText("I want to borrow")).toBeTruthy();
+    expect(getByText(strings.homeScreen.amountLabel)).toBeTruthy();
     expect(getByText("£7,500.00")).toBeTruthy();
   });
 

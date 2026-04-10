@@ -5,6 +5,7 @@ import {
   OpenSans_400Regular,
   OpenSans_600SemiBold,
 } from "@expo-google-fonts/open-sans";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import HomeScreen from "./src/screens/HomeScreen";
 
 SplashScreen.preventAutoHideAsync();
@@ -22,5 +23,9 @@ export default function App() {
 
   if (!fontsLoaded) return null;
 
-  return <HomeScreen onLayout={onLayout} />;
+  return (
+    <SafeAreaProvider>
+      <HomeScreen onLayout={onLayout} />
+    </SafeAreaProvider>
+  );
 }

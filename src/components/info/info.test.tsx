@@ -1,6 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react-native";
 import Info from "./Info";
+import { strings } from "../../strings";
 
 describe("Info", () => {
   it("renders rate, repayment and labels", () => {
@@ -9,7 +10,7 @@ describe("Info", () => {
     );
     expect(getByText("10%")).toBeTruthy();
     expect(getByText("£285.78")).toBeTruthy();
-    expect(getByText("Interest rate")).toBeTruthy();
-    expect(getByText("Monthly repayment")).toBeTruthy();
+    expect(getByText(strings.info.interestRate)).toBeTruthy();
+    expect(getByText(strings.info.monthlyRepayment)).toBeTruthy();
   });
 });

@@ -5,9 +5,8 @@ export const styles = StyleSheet.create({
   button: {
     backgroundColor: colors.primary,
     borderRadius: 8,
-    paddingVertical: spacing.lg,
+    paddingVertical: spacing.xxl,
     alignItems: "center",
-    marginHorizontal: spacing.lg,
   },
   label: {
     color: colors.white,
