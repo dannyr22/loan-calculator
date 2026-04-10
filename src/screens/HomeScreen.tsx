@@ -48,6 +48,7 @@ const HomeScreen = ({ onLayout }: { onLayout: () => void }) => {
             />
             <LoanSlider
               testID="term-slider"
+              showSteps
               label={strings.homeScreen.termLabel}
               displayValue={formatTerm(term)}
               value={term}
