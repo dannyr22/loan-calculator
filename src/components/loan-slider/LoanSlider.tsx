@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text } from "react-native";
 import { styles } from "./LoanSlider.styles";
 import RNSlider from "@react-native-community/slider";
+import { colors } from "../../theme";
 
 interface LoanSliderProps {
   testID?: string;
@@ -37,12 +38,11 @@ const LoanSlider = ({
       maximumValue={maximumValue}
       step={step}
       onValueChange={onValueChange}
-      minimumTrackTintColor="#f60367"
-      maximumTrackTintColor="#f8c0d0"
-      thumbTintColor="#f60367"
+      minimumTrackTintColor={colors.primary}
+      maximumTrackTintColor={colors.primaryLight}
+      thumbTintColor={colors.primary}
     />
   </View>
 );
-
 
 export default LoanSlider;

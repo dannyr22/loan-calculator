@@ -12,10 +12,15 @@ import {
   formatTerm,
 } from "../utils/calculations";
 import Info from "../components/info/Info";
+import { colors } from "../theme";
+import { strings } from "../strings";
 
 const HomeScreen = ({ onLayout }: { onLayout: () => void }) => {
-  const [amount, setAmount] = useState(7500);
-  const [term, setTerm] = useState(30);
+  const INITIAL_AMOUNT = 7500;
+  const INITIAL_TERM = 30;
+
+  const [amount, setAmount] = useState(INITIAL_AMOUNT);
+  const [term, setTerm] = useState(INITIAL_TERM);
 
   const interestRate = getInterestRate(amount);
   const monthlyRepayment = getMonthlyRepayment(amount, interestRate, term);
@@ -30,7 +35,7 @@ const HomeScreen = ({ onLayout }: { onLayout: () => void }) => {
 
   return (
     <LinearGradient
-      colors={["#383b7e", "#f60367"]}
+      colors={[colors.gradientStart, colors.primary]}
       start={{ x: 1, y: 0 }}
       end={{ x: 0, y: 1 }}
       style={styles.gradient}
@@ -40,7 +45,7 @@ const HomeScreen = ({ onLayout }: { onLayout: () => void }) => {
         <View style={styles.card}>
           <LoanSlider
             testID="amount-slider"
-            label="I want to borrow"
+            label={strings.homeScreen.amountLabel}
             displayValue={formatCurrency(amount)}
             value={amount}
             minimumValue={1000}
@@ -50,7 +55,7 @@ const HomeScreen = ({ onLayout }: { onLayout: () => void }) => {
           />
           <LoanSlider
             testID="term-slider"
-            label="over"
+            label={strings.homeScreen.termLabel}
             displayValue={formatTerm(term)}
             value={term}
             minimumValue={6}
@@ -63,11 +68,10 @@ const HomeScreen = ({ onLayout }: { onLayout: () => void }) => {
             monthlyRepayment={monthlyRepayment}
           />
         </View>
-        <Button label="Get your quote »" onPress={handleQuote} />
+        <Button label={strings.homeScreen.button} onPress={handleQuote} />
       </SafeAreaView>
     </LinearGradient>
   );
 };
-
 
 export default HomeScreen;
